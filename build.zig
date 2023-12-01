@@ -6,12 +6,12 @@ pub fn build(b: *std.Build) !void {
 
     // don't judge i have no idea how to do it properly
     const puzzle = b.option([]const u8, "n", "Select puzzle (e.g. `01a`)").?;
-    var path = try b.allocator.dupe(u8, "99/main_X.zig");
+    var path = try b.allocator.dupe(u8, "99/X.zig");
 
     // i am aware how horrible this looks
     path[0] = puzzle[0];
     path[1] = puzzle[1];
-    path[8] = puzzle[2];
+    path[3] = puzzle[2];
 
     const exe = b.addExecutable(.{
         .name = "app",
