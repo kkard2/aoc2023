@@ -31,9 +31,7 @@ pub fn main() !void {
 
     while (lines.next()) |line| {
         var pos: usize = 0;
-        const game_index = (try readFirstNumber(line, &pos)).?;
-
-        var success = true;
+        _ = (try readFirstNumber(line, &pos)).?;
 
         while (line.len > pos) {
             var r: u32 = 0;
@@ -55,14 +53,7 @@ pub fn main() !void {
                 }
             }
 
-            if (r > 12 or g > 13 or b > 14) {
-                success = false;
-                break;
-            }
-        }
-
-        if (success) {
-            sum += game_index;
+            sum += r * g * b;
         }
     }
 

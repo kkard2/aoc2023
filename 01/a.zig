@@ -5,7 +5,7 @@ pub fn main() !void {
     defer file.close();
 
     var buf_reader = std.io.bufferedReader(file.reader());
-    var in_stream = buf_reader.reader();
+    var in_stream: std.io.Reader = buf_reader.reader();
     var buf: [1024]u8 = undefined;
 
     var sum: u64 = 0;
